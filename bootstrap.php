@@ -8,19 +8,12 @@
 
 require __DIR__.'/vendor/autoload.php';
 
+
+
+$settings = require __DIR__.'/src/settings.php';
 //instanciando o Slim
-$app = new Slim\App;
+$app = new Slim\App($settings);
 
-$app->get('/hello',function (){
-    return  'Hello World';
-});
-
-$app->get('/rota1',function (){
-    return  'Teste rota 1';
-});
-
-$app->get('/rota2',function (){
-    return  'Teste rota 2';
-});
+require __DIR__.'/src/routes.php';
 
 $app->run();
